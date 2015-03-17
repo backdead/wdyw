@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="wdywApp">
+  <body ng-app="wdyw">
     <!--[if lt IE 7]>
       <!-- <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> -->
     <![endif]-->
@@ -61,7 +61,7 @@
           <li><a ng-href="#">Contact</a></li>
         </ul> -->
         <h3 class="text-muted text-center">What do you want do in 2015 ?</h3>
-        <h4>Every one has some goals to reach in short or long time, the thing can be small or big. So what's yours? We are here for sharing...</h4>
+        <h4>Every one has some goals to reach in a short or long time, the thing can be small or big. So what's yours? We are here for sharing...</h4>
       </div>
 
       <div ng-view=""></div>
@@ -105,8 +105,12 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/mainCtrl.js"></script>
+        <script src="scripts/controllers/aboutCtrl.js"></script>
         <!-- endbuild -->
+        
+        <!-- Factories -->
+        <script src="scripts/factories/utils/DataFactory.js"></script>
+        
 </body>
 </html>
