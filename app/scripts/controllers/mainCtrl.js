@@ -11,12 +11,16 @@ angular.module('wdyw')
 .controller('MainCtrl',
 ['$scope', 'DataFactory',
   function($scope, DataFactory) {
+    $scope.check = false;
+    $scope.newComment = null;
+
     var init = function () {
       $scope.newComment = DataFactory.createComment();
+
     };
-    
+
     init();
-    
+
     $scope.comments = [
       {
         name: "Timothy",
@@ -42,7 +46,19 @@ angular.module('wdyw')
 
     $scope.post = function(newComment) {
       $scope.comments.push(newComment);
+      console.log($scope.check);
       init();
     };
+
+    $scope.valid = function () {
+      var valid = true;
+      if($scope.newComment.content !== "" && $scope.check === true) {
+        valid = false;
+      }
+
+      return valid;
+    }
+
+
 
   }]);
