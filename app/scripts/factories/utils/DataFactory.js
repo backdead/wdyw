@@ -4,7 +4,7 @@ angular.module('wdyw')
 .factory('DataFactory', [function() {
      var createComment = function() {
       return {
-       name: "anonymous",
+       name: "",
        content: "",
        class: "alert alert-danger" 
       };

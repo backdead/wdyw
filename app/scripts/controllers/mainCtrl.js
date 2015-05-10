@@ -20,6 +20,7 @@ angular.module('wdyw')
     var init = function () {
       $scope.newComment = DataFactory.createComment();
       $scope.age.value = "";
+      $scope.name = "";
     };
 
     init();
@@ -100,8 +101,16 @@ angular.module('wdyw')
       }
       
       return valid;
-    }
-
+    };
+    
+    $scope.isNoName = function() {
+        var valid = true;
+        if($scope.newComment.name !== "") {
+            valid = false;
+        }
+        
+        return valid;
+    };
 
 
   }]);

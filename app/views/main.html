@@ -1,18 +1,24 @@
 <div class="jumbotron">
     <div style="height:500px; overflow: scroll">
-    <div 
-         <div class="text-left" ng-repeat="comment in comments">
+        <div class="text-left" ng-repeat="comment in comments">
             <Strong ng-bind="comment.name"></strong>
             <div class="alert alert-link" role="alert" ng-bind="comment.content"></div>
         </div>
     </div>
-    
 </div>
 
 <div class="row marketing">
     <textarea class="form-control" rows="3" ng-model='newComment.content'></textarea>
     <br />
-    <div ng-hide="isNoContent()">
+
+    <div class="input-group col-xs-6" ng-hide="isNoContent()">
+        <span class="input-group-addon glyphicon glyphicon-user" id="sizing-addon3"></span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3" ng-model="newComment.name">
+    </div>
+
+
+    <br />
+    <div ng-hide="isNoContent() || isNoName()">
         <label class="text-default">
             Please select your age:
         </label>
@@ -44,7 +50,7 @@
     </div>
     <div class="form-group">
         <div class="pull-right" >
-            <button ng-click="post(newComment)" class="btn btn-default" ng-hide="isNoAge() || isNoContent()">Post</button>
+            <button ng-click="post(newComment)" class="btn btn-default"  ng-hide="isNoAge() || isNoContent() || isNoName()">Post</button>
         </div>
     </div>
 </div>
