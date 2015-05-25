@@ -8,12 +8,12 @@ angular.module('wdyw')
 
     return function () {
     
-      var getComments = {
+      var getGoals = {
         method: 'GET',
         isArray : true
       };
       
-      var createComment = {
+      var createGoal = {
         method: 'POST',
         isArray: false
       };
@@ -21,8 +21,8 @@ angular.module('wdyw')
       return $resource(WsSettings.HOST + WsSettings.COMMENT,
       {},
       {
-        getComments: getComments,
-        createComment: createComment
+        getGoals: getGoals,
+        createGoal: createGoal
       });
     };
   }]);
