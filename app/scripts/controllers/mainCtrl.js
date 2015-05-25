@@ -11,16 +11,11 @@ angular.module('wdyw')
 .controller('MainCtrl',
 ['$scope', 'DataFactory',
   function($scope, DataFactory) {
-    $scope.age = {
-      value: ""
-    };
     
-    $scope.newComment = null;
+    $scope.newGoal = null;
 
     var init = function () {
-      $scope.newComment = DataFactory.createComment();
-      $scope.age.value = "";
-      $scope.name = "";
+      $scope.newGoal = DataFactory.createGoal();    
     };
 
     init();
@@ -77,8 +72,8 @@ angular.module('wdyw')
     //var counter = $scope.comments.slice(-1)[0];
     $scope.glued = true;
     
-    $scope.post = function(newComment) {
-      $scope.comments.push(newComment);
+    $scope.post = function(newGoal) {
+      $scope.comments.push(newGoal);
       //console.log($scope.comments[0]);
       //$scope.comments.splice($scope.comments.indexOf($scope.comments[0]), 1);
       init();
@@ -87,7 +82,7 @@ angular.module('wdyw')
 
     $scope.isNoAge = function () {
       var valid = true;
-      if($scope.age.value !== "") {
+      if($scope.newGoal.age !== "") {
         valid = false;
       }
       
@@ -96,7 +91,7 @@ angular.module('wdyw')
     
     $scope.isNoContent = function () {
       var valid = true;
-      if($scope.newComment.content !== "") {
+      if($scope.newGoal.content !== "") {
         valid = false;
       }
       
@@ -105,7 +100,7 @@ angular.module('wdyw')
     
     $scope.isNoName = function() {
         var valid = true;
-        if($scope.newComment.name !== "") {
+        if($scope.newGoal.name !== "") {
             valid = false;
         }
         

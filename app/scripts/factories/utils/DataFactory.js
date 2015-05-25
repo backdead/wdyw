@@ -2,9 +2,10 @@
 
 angular.module('wdyw')
 .factory('DataFactory', [function() {
-     var createComment = function() {
+     var createGoal = function() {
       return {
        name: "",
+       age: "",
        content: "",
        class: "alert alert-danger" 
       };
@@ -13,7 +14,7 @@ angular.module('wdyw')
     
 
     return {
-      createComment:createComment
+      createGoal:createGoal
     };
 
   }]);
