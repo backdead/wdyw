@@ -6,7 +6,7 @@ angular.module('wdyw')
   function($rootScope, GoalFactory, ApplicationMessages, DataFactory, WebServiceErrors) {
     var goals = null;
     
-    this.retriveGoals = function() {
+    this.retrieveGoals = function() {
       goals = new GoalFactory().getGoals(
       {
         

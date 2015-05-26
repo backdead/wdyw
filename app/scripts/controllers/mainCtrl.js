@@ -9,18 +9,20 @@
  */
 angular.module('wdyw')
 .controller('MainCtrl',
-['$scope', 'DataFactory',
-  function($scope, DataFactory) {
+['$scope', 'DataFactory', 'GoalService',
+  function($scope, DataFactory, GoalService) {
     
     $scope.newGoal = null;
-
+    
+    $scope.goals = GoalService.retrieveGoals();
+    
     var init = function () {
       $scope.newGoal = DataFactory.createGoal();    
     };
 
     init();
 
-    $scope.comments = [
+    /*$scope.comments = [
       {
         name: "Timothy",
         content: "Few people come to this world to leave an indelible legacy in other people hearts, inspiring them and lighting their ways in life. Thabk you for being that person for me. ",
@@ -67,7 +69,7 @@ angular.module('wdyw')
         class: "alert alert-danger"
       }
       
-    ];
+    ];*/
     
     //var counter = $scope.comments.slice(-1)[0];
     $scope.glued = true;

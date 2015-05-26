@@ -10,5 +10,5 @@ angular.module('wdyw')
 .constant('WsSettings', {
   
   HOST: 'http://localhost:8001/',  
-  COMMENT: 'comment.php'
+  GOAL: 'goal.php'
 });

@@ -2,7 +2,7 @@
 
 
 angular.module('wdyw')
-.factory('CommentFactory',
+.factory('GoalFactory',
 ['$resource', 'WsSettings',
   function ($resource, WsSettings) {
 
@@ -18,7 +18,7 @@ angular.module('wdyw')
         isArray: false
       };
       
-      return $resource(WsSettings.HOST + WsSettings.COMMENT,
+      return $resource(WsSettings.HOST + WsSettings.GOAL,
       {},
       {
         getGoals: getGoals,
