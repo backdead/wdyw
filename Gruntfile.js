@@ -71,35 +71,23 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      livereload: {
+       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
+          base: [
+            '.tmp',
+            '<%= yeoman.app %>'
+          ]
         }
       },
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
+          base: [
+            '.tmp',
+            'test',
+            '<%= yeoman.app %>'
+          ]
         }
       },
       dist: {
@@ -159,7 +147,12 @@ module.exports = function (grunt) {
         }]
       }
     },
-
+    bowerInstall: {
+      app: {
+        src: ['<%= yeoman.app %>/index.html'],
+        ignorePath: '<%= yeoman.app %>/'
+      }
+    },
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -349,7 +342,7 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js',
+        configFile: 'karma.conf.js',
         singleRun: true
       }
     }
@@ -363,6 +356,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'bowerInstall',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -386,7 +380,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
+    'bowerInstall',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -396,7 +390,7 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
+    'rev',
     'usemin',
     'htmlmin'
   ]);

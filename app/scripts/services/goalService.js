@@ -2,8 +2,8 @@
 
 angular.module('wdyw')
 .service('GoalService',
-['$rootScope', 'GoalFactory', 'ApplicationMessages', 'DataFactory', 'WebServiceErrors',
-  function($rootScope, GoalFactory, ApplicationMessages, DataFactory, WebServiceErrors) {
+['$rootScope', 'GoalFactory',  'DataFactory', 
+  function($rootScope, GoalFactory, DataFactory) {
     var goals = null;
     
     this.retrieveGoals = function() {

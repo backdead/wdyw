@@ -3,7 +3,7 @@
 
 angular.module('wdyw')
 .factory('GoalFactory',
-['$resource', 'WsSettings',
+['$resource', 'WsSettings', 
   function ($resource, WsSettings) {
 
     return function () {
