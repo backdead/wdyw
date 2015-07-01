@@ -6,15 +6,24 @@ angular.module('wdyw')
       return {
        name: "",
        age: "",
-       content: "",
+       comment: "",
        class: "alert alert-danger" 
+      };
+    };
+    
+    var extracGoalObject = function (goal) {
+      return {
+        name: goal.name,
+        age: goal.age,
+        comment: goal.comment
       };
     };
     
     
 
     return {
-      createGoal:createGoal
+      createGoal:createGoal,
+      extracGoalObject: extracGoalObject
     };
 
   }]);
